@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Joke from './Joke';
+import JokeCard from './JokeCard';
 
 const JokeList = (props) => {
     return (
         <article>
             {props.jokes.map(joke => 
                 <>
-                    <Joke joke={joke} />
+                    <JokeCard joke={joke} />
                     <br/>
                 </>
             )}
