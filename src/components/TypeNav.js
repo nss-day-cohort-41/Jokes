@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const TypeNav = (props) => {
+import { JokeContext } from '../providers/JokeProvider';
+
+const TypeNav = () => {
+  const { loadJokesForType, selectedType } = useContext(JokeContext);
+
   return (
     <ul>
-      <li className={props.selectedType === 'general' ? 'selected' : ''}
-        onClick={() => props.loadJokesForType('general')}>
+      <li className={selectedType === 'general' ? 'selected' : ''}
+        onClick={() => loadJokesForType('general')}>
         General
       </li>
-      <li className={props.selectedType === 'knock-knock' ? 'selected' : ''}
-        onClick={() => props.loadJokesForType('knock-knock')}>
+      <li className={selectedType === 'knock-knock' ? 'selected' : ''}
+        onClick={() => loadJokesForType('knock-knock')}>
         Knock-Knock
       </li>
-      <li className={props.selectedType === 'programming' ? 'selected' : ''}
-        onClick={() => props.loadJokesForType('programming')}>
+      <li className={selectedType === 'programming' ? 'selected' : ''}
+        onClick={() => loadJokesForType('programming')}>
         Programming
       </li>
     </ul>

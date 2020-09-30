@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import Joke from './Joke';
+import React, { useContext } from 'react';
+import JokeCard from './JokeCard';
 
-const JokeList = (props) => {
-    return (
-        <article>
-            {props.jokes.map(joke => 
-                <>
-                    <Joke joke={joke} />
-                    <br/>
-                </>
-            )}
-        </article>
-    )
+import { JokeContext } from '../providers/JokeProvider';
+
+const JokeList = () => {
+  const { jokes } = useContext(JokeContext);
+
+  return (
+    <article>
+      {jokes.map(joke =>
+        <>
+          <JokeCard joke={joke} />
+          <br />
+        </>
+      )}
+    </article>
+  )
 }
 
 export default JokeList;

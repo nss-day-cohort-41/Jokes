@@ -2,11 +2,11 @@ import React from 'react';
 import JokeList from './JokeList';
 import JokeHeader from './JokeHeader';
 
-const JokeMain = (props) => {
+const JokeMain = () => {
   return (
     <main>
       <JokeHeader />
-      <JokeList jokes={props.jokes} />
+      <JokeList />
     </main>
   );
 };

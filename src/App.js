@@ -1,32 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import JokeMain from './components/JokeMain';
 import JokeSide from './components/JokeSide';
-import JokeManager from './modules/JokeManager';
+import { JokeContext } from './providers/JokeProvider';
 
 function App() {
-  const [selectedType, setSelectedType] = useState();
-  const [jokes, setJokes] = useState([]);
+  const { loadJokesForType } = useContext(JokeContext);
 
   useEffect(() => {
     loadJokesForType("general");
   }, []);
 
-  const loadJokesForType = (type) => {
-    JokeManager
-      .getByType(type)
-      .then(jokes => {
-        setJokes(jokes);
-        setSelectedType(type);
-      });
-  }
-
   return (
     <div className="App">
-      <JokeSide 
-        loadJokesForType={loadJokesForType}
-        selectedType={selectedType} 
-      />
-      <JokeMain jokes={jokes}/>
+      <JokeSide />
+      <JokeMain />
     </div>
   );
 }

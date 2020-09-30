@@ -4,9 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { JokeProvider } from './providers/JokeProvider';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <JokeProvider>
+      <App />
+    </JokeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

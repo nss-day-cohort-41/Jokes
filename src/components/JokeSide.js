@@ -1,12 +1,10 @@
 import React from 'react';
 import TypeNav from './TypeNav';
 
-const JokeSide = (props) => {
+const JokeSide = () => {
   return (
     <aside className="sideNav">
-      <TypeNav
-        loadJokesForType={props.loadJokesForType}
-        selectedType={props.selectedType} />
+      <TypeNav />
     </aside>
   );
 };
