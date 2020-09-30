@@ -11,3 +11,54 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+ /* The sidebar menu */
+aside {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+aside li {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  list-style: none;
+}
+
+aside ul {
+  margin-left: -30px;
+}
+
+/* When you mouse over the navigation links, change their color */
+aside li:hover, aside li.selected:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+aside li.selected {
+  color: #d1d1d1;
+}
+
+/* Style page content */
+main {
+  margin-top: 10px;
+  margin-left: 210px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  aside {padding-top: 15px;}
+  aside li {font-size: 18px;}
+} 

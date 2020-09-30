@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import JokeMain from './components/JokeMain';
+import JokeSide from './components/JokeSide';
+import JokeManager from './modules/JokeManager';
 
 function App() {
+  const [selectedType, setSelectedType] = useState();
+  const [jokes, setJokes] = useState([]);
+
+  useEffect(() => {
+    loadJokesForType("general");
+  }, []);
+
+  const loadJokesForType = (type) => {
+    JokeManager
+      .getByType(type)
+      .then(jokes => {
+        setJokes(jokes);
+        setSelectedType(type);
+      });
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <JokeSide 
+        loadJokesForType={loadJokesForType}
+        selectedType={selectedType} 
+      />
+      <JokeMain jokes={jokes}/>
     </div>
   );
 }
